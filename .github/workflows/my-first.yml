@@ -1,6 +1,9 @@
-# This is a basic workflow to help you get started with Actions
+# This is a basic workflow to help you get started with JMeter Actions
 
-name: CI
+#The name of the workflow.
+name: JMeter Test Execution
+
+run-name: Run JMeter Test by @${{ github.actor }}
 
 # Controls when the workflow will run
 on:
@@ -30,30 +33,30 @@ jobs:
       run: echo Hello, JMeter!
 
           # Step 2: Install JMeter
-    - name: Install JMeter
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y default-jdk wget
-        wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.3.tgz
-        tar -xvzf apache-jmeter-5.6.3.tgz
-        mv apache-jmeter-5.6.3 ~/jmeter
+    # - name: Install JMeter
+    #   run: |
+    #     sudo apt-get update
+    #     sudo apt-get install -y default-jdk wget
+    #     wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.3.tgz
+    #     tar -xvzf apache-jmeter-5.6.3.tgz
+    #     mv apache-jmeter-5.6.3 ~/jmeter
 
-          # Step 3: Run JMeter test plan
-    - name: Run JMeter test plan
-      run: |
-        mkdir -p results
-        ~/jmeter/bin/jmeter -n -t test-plans/test-plan-jmeter-browse-website.jmx -l results/results.jtl -j results/jmeter.log
+    #       # Step 3: Run JMeter test plan
+    # - name: Run JMeter test plan
+    #   run: |
+    #     mkdir -p results
+    #     ~/jmeter/bin/jmeter -n -t test-plans/test-plan-jmeter-browse-website.jmx -l results/results.jtl -j results/jmeter.log
 
-    # Step 4: Save results as artifacts
-    - name: Upload results folder as artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: jmeter-results-and-test-results
-        path: |
-          results/
+    # # Step 4: Save results as artifacts
+    # - name: Upload results folder as artifacts
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: jmeter-results-and-test-results
+    #     path: |
+    #       results/
 
-      # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    #   # Runs a set of commands using the runners shell
+    # - name: Run a multi-line script
+    #   run: |
+    #       echo Add other actions to build,
+    #       echo test, and deploy your project.
