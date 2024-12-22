@@ -14,7 +14,7 @@ on:
   #   branches: [ "main" ]
   schedule:
      # Runs at 11:00 AM UTC daily
-     - cron: "50 10 * * *"
+     - cron: "42 10 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
