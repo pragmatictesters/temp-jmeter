@@ -3,7 +3,7 @@
 #The name of the workflow.
 name: JMeter Test Execution
 
-run-name: Run JMeter Test by @${{ github.actor }}
+run-name: JMeter Test Run - Commit:${{ github.event.head_commit.message }} by ${{ github.actor }}
 
 # Controls when the workflow will run
 on:
